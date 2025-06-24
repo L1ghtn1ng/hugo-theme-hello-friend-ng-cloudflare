@@ -51,6 +51,19 @@
     &-title {
       font-size: 1rem;
       margin: 5px 0 5px 0;
+      color: $light-color;
+
+      @media (prefers-color-scheme: dark) {
+        color: $dark-color;
+      }
+
+      [data-theme=dark] & {
+        color: $dark-color;
+      }
+
+      [data-theme=light] & {
+        color: $light-color;
+      }
     }
 
     &-year {
