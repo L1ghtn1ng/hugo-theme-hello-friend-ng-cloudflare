@@ -1,45 +1,7 @@
 .footer {
-  padding: 60px 20px 40px;
+  padding: 40px 20px;
   flex-grow: 0;
-  position: relative;
-  // Default
   color: $light-color-secondary;
-  background: linear-gradient(180deg, rgba($light-background-secondary, 0) 0%, rgba($light-background-secondary, 0.5) 100%);
-  border-top: 1px solid rgba($light-border-color, 0.3);
-
-  @media (prefers-color-scheme: dark) {
-    color: $dark-color-secondary;
-    background: linear-gradient(180deg, rgba($dark-background-secondary, 0) 0%, rgba($dark-background-secondary, 0.5) 100%);
-    border-top: 1px solid rgba($dark-border-color, 0.3);
-  }
-
-  @media (prefers-color-scheme: light) {
-    color: $light-color-secondary;
-    background: linear-gradient(180deg, rgba($light-background-secondary, 0) 0%, rgba($light-background-secondary, 0.5) 100%);
-    border-top: 1px solid rgba($light-border-color, 0.3);
-  }
-
-  [data-theme=dark] & {
-    color: $dark-color-secondary;
-    background: linear-gradient(180deg, rgba($dark-background-secondary, 0) 0%, rgba($dark-background-secondary, 0.5) 100%);
-    border-top: 1px solid rgba($dark-border-color, 0.3);
-  }
-
-  [data-theme=light] & {
-    color: $light-color-secondary;
-    background: linear-gradient(180deg, rgba($light-background-secondary, 0) 0%, rgba($light-background-secondary, 0.5) 100%);
-    border-top: 1px solid rgba($light-border-color, 0.3);
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: $primary-gradient;
-  }
 
   &__inner {
     display: flex;
@@ -52,47 +14,35 @@
     @media #{$media-size-tablet} {
       flex-direction: column;
     }
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
   }
 
   &__content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     font-size: 1rem;
+    color: $light-color-secondary;
 
     @media #{$media-size-tablet} {
       flex-direction: column;
       margin-top: 10px;
-      text-align: center;
     }
 
-    span {
-      display: inline-flex;
-      align-items: center;
-      margin: 5px 10px;
-      transition: color 0.3s ease;
+    & > *:not(:last-child)::after {
+      content: "•";
+      padding: 0 5px;
 
-      a {
-        text-decoration: none;
-        transition: all 0.3s ease;
+      @media #{$media-size-tablet} {
+          content: "";
+          padding: 0;
+      }
+    }
 
-        &:hover {
-          color: $light-accent-color;
+    & > *:last-child {
+      padding: 0 0px;
 
-          [data-theme=dark] & {
-            color: $dark-accent-color;
-          }
-        }
-
-        svg {
-          margin-right: 5px;
-        }
+      @media #{$media-size-tablet} {
+          padding: 0;
       }
     }
   }
