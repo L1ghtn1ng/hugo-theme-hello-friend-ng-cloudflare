@@ -102,6 +102,11 @@ h1 {
 h2 {
   font-size: 1.75rem;
   margin-top: 2.5em;
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 h3 {
