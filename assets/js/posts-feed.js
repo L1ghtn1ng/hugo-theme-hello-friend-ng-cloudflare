@@ -56,9 +56,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const postsHTML = posts.map(post => `
         <article class="post-card">
           <div class="post-card-content">
+            ${post.tags && post.tags.length > 0 ? `
+              <div class="post-card-tags">
+                ${post.tags.map(tag => `<span class="post-card-tag">${tag}</span>`).join('')}
+              </div>
+            ` : ''}
             <h2 class="post-card-title">
               <a href="${post.permalink}">${post.title}</a>
             </h2>
+            <div class="post-card-meta">
+              <span class="post-card-reading-time">${post.readingTime} min read</span>
+            </div>
           </div>
         </article>
       `).join('');
