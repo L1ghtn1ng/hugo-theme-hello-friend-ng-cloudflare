@@ -195,7 +195,7 @@
       transition: color 0.4s ease, background-size 0.4s ease;
 
       [data-theme=dark] & {
-        color: $dark-accent-color;
+        color: $light-accent-color;
       }
     }
   }

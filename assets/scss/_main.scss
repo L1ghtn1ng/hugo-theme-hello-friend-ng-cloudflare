@@ -148,8 +148,8 @@ a {
       background-size: 100% 2px;
 
       [data-theme=dark] & {
-        color: $dark-accent-color;
-        background-image: $tertiary-gradient;
+        color: $light-accent-color;
+        background-image: $primary-gradient;
       }
     }
   }

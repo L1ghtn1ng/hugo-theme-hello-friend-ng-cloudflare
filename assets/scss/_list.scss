@@ -109,14 +109,14 @@
           color: $light-accent-color;
 
           [data-theme=dark] & {
-            color: $dark-accent-color;
+            color: $light-accent-color;
           }
 
           .post-title {
             color: $light-accent-color;
 
             [data-theme=dark] & {
-              color: $dark-accent-color;
+              color: $light-accent-color;
             }
           }
         }
