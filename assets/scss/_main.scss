@@ -94,7 +94,9 @@ h1 {
   font-size: 2.75rem;
   background: $primary-gradient;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-fill-color: transparent;
 }
 
 h2 {
@@ -329,19 +331,6 @@ pre {
     -webkit-backdrop-filter: blur(10px);
     z-index: 10;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-    // Add gradient border at top to match code block
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: $primary-gradient;
-      opacity: 0.7;
-      border-radius: 12px 12px 0 0;
-    }
 
     @media #{$media-size-phone} {
       opacity: 1; // Consistent opacity on mobile
