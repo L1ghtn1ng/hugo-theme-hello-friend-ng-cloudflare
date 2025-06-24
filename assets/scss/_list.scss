@@ -103,6 +103,23 @@
         align-items: baseline;
         padding: 12px 0;
         text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $light-accent-color;
+
+          [data-theme=dark] & {
+            color: $dark-accent-color;
+          }
+
+          .post-title {
+            color: $light-accent-color;
+
+            [data-theme=dark] & {
+              color: $dark-accent-color;
+            }
+          }
+        }
       }
     }
 
