@@ -1,7 +1,8 @@
 {{ $main := resources.Get "js/main.js" }}
 {{ $menu := resources.Get "js/menu.js" }}
 {{ $theme := resources.Get "js/theme.js" }}
-{{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $postsFeed := resources.Get "js/posts-feed.js" }}
+{{ $secureJS := slice $main $menu $theme $postsFeed | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" nonce=""></script>
 
 {{ range $val := $.Site.Params.customJS }}

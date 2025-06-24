@@ -7,13 +7,17 @@
     {{ block "body" . }}
         <body>
     {{ end }}
-    
+
         <div class="container">
             {{ partial "header.html" . }}
 
             <div class="content">
                 {{ block "main" . }}{{ end }}
             </div>
+
+            {{ if .IsHome }}
+                {{ partial "posts-section.html" . }}
+            {{ end }}
 
             {{ block "footer" . }}
                 {{ partial "footer.html" . }}

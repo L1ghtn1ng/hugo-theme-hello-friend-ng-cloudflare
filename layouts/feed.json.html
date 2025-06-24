@@ -1,0 +1,16 @@
+[
+{{ range $index, $e := where .Site.RegularPages "Type" "posts" }}
+{{ if $index }},{{ end }}
+{
+  "title": {{ .Title | jsonify }},
+  "permalink": {{ .Permalink | jsonify }},
+  "date": {{ .Date.Format "2006-01-02" | jsonify }},
+  "summary": {{ .Summary | plainify | jsonify }},
+  "tags": {{ .Params.tags | jsonify }},
+  "categories": {{ .Params.categories | jsonify }},
+  "readingTime": {{ .ReadingTime }},
+  "author": {{ if .Params.author }}{{ .Params.author | jsonify }}{{ else }}{{ .Site.Author.name | jsonify }}{{ end }}
+  {{ if .Params.cover }}, "image": {{ .Params.cover | jsonify }}{{ end }}
+}
+{{ end }}
+]

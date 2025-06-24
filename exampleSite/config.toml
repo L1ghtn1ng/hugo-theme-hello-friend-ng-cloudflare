@@ -33,6 +33,16 @@ disableSitemap = false
 disable404     = false
 disableHugoGeneratorInject = false
 
+# Enable JSON output format for blog posts feed
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "feed"
+    isPlainText = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 
