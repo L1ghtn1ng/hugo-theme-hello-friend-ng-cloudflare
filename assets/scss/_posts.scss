@@ -10,7 +10,7 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+  background: $primary-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -28,7 +28,11 @@
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
-  color: #888;
+  color: $light-color-secondary;
+
+  [data-theme=dark] & {
+    color: $dark-color-secondary;
+  }
 }
 
 /* Post Card Styles */
@@ -174,13 +178,11 @@
 
     &:hover {
       background-size: 100% 2px;
-      background-image: $primary-gradient;
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
+      color: $light-accent-color;
+      transition: color 0.4s ease, background-size 0.4s ease;
 
       [data-theme=dark] & {
-        background-image: $tertiary-gradient;
+        color: $dark-accent-color;
       }
     }
   }
@@ -194,8 +196,12 @@
   margin-top: 0.4rem;
   margin-bottom: 0;
   font-size: 0.7rem;
-  color: #888;
+  color: $light-color-secondary;
   font-style: italic;
+
+  [data-theme=dark] & {
+    color: $dark-color-secondary;
+  }
 }
 
 .post-card-excerpt {

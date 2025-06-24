@@ -16,15 +16,15 @@
     @media (prefers-color-scheme: dark) {
       border-bottom: 1px solid $dark-border-color;
     }
-  
+
     @media (prefers-color-scheme: light) {
       border-bottom: 1px solid $light-border-color;
     }
-  
+
     [data-theme=dark] & {
       border-bottom: 1px solid $dark-border-color;
     }
-  
+
     [data-theme=light] & {
       border-bottom: 1px solid $light-border-color;
     }
@@ -65,7 +65,24 @@
     }
 
     &-item {
-      border-bottom: 1px grey dashed;
+      // Default
+      border-bottom: 1px $light-border-color dashed;
+
+      @media (prefers-color-scheme: dark) {
+        border-bottom: 1px $dark-border-color dashed;
+      }
+
+      @media (prefers-color-scheme: light) {
+        border-bottom: 1px $light-border-color dashed;
+      }
+
+      [data-theme=dark] & {
+        border-bottom: 1px $dark-border-color dashed;
+      }
+
+      [data-theme=light] & {
+        border-bottom: 1px $light-border-color dashed;
+      }
 
       a {
         display: flex;
