@@ -10,16 +10,39 @@ document.addEventListener('DOMContentLoaded', function() {
   // Fetch the JSON feed
   // Get the URL from the link tag in the head
   const jsonFeedLink = document.querySelector('link[type="application/json"]');
-  // If we can't find the link tag, construct the URL based on the current page
-  const jsonFeedUrl = jsonFeedLink ? jsonFeedLink.href : window.location.origin + '/index.json';
 
-  fetch(jsonFeedUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
+  // Try multiple possible URLs for the JSON feed
+  const possibleUrls = [
+    jsonFeedLink ? jsonFeedLink.href : null,
+    window.location.origin + '/index.json',
+    window.location.origin + '/feed.json',
+    window.location.href.replace(/\/$/, '') + '/index.json',
+    window.location.href.replace(/\/$/, '') + '/feed.json'
+  ].filter(Boolean); // Remove null values
+
+  // Function to try fetching from each URL until one succeeds
+  function tryFetch(urls, index = 0) {
+    if (index >= urls.length) {
+      throw new Error('Could not fetch JSON feed from any of the possible URLs');
+    }
+
+    return fetch(urls[index])
+      .then(response => {
+        if (!response.ok) {
+          console.log(`Failed to fetch from ${urls[index]}, trying next URL...`);
+          return tryFetch(urls, index + 1);
+        }
+        console.log(`Successfully fetched JSON feed from ${urls[index]}`);
+        return response.json();
+      })
+      .catch(error => {
+        console.log(`Error fetching from ${urls[index]}: ${error.message}`);
+        return tryFetch(urls, index + 1);
+      });
+  }
+
+  // Try fetching from each possible URL
+  tryFetch(possibleUrls)
     .then(posts => {
       if (!Array.isArray(posts) || posts.length === 0) {
         postsContainer.innerHTML = '<p>No posts found.</p>';
