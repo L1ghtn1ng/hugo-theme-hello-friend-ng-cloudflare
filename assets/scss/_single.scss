@@ -31,6 +31,11 @@
       background-size: 0% 2px;
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       padding-bottom: 2px;
+      // Override gradient text effect
+      background-clip: initial;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
+      text-fill-color: initial;
 
       @media (prefers-color-scheme: dark) {
         color: $dark-color;
