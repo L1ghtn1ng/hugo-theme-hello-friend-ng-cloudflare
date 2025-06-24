@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Fetch the JSON feed
   // Get the URL from the link tag in the head
   const jsonFeedLink = document.querySelector('link[type="application/json"]');
-  const jsonFeedUrl = jsonFeedLink ? jsonFeedLink.href : '/feed.json';
+  // If we can't find the link tag, construct the URL based on the current page
+  const jsonFeedUrl = jsonFeedLink ? jsonFeedLink.href : window.location.origin + '/index.json';
 
   fetch(jsonFeedUrl)
     .then(response => {

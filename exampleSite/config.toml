@@ -37,7 +37,7 @@ disableHugoGeneratorInject = false
 [outputFormats]
   [outputFormats.JSON]
     mediaType = "application/json"
-    baseName = "feed"
+    baseName = "index"
     isPlainText = true
 
 [outputs]
