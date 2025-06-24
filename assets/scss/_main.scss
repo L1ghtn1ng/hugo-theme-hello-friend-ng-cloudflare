@@ -316,15 +316,17 @@ pre {
     right: 10px;
     width: 36px;
     height: 36px;
-    background: $light-background-secondary;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background: rgba($light-background-secondary, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1; // Fully visible
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 10;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
@@ -338,12 +340,16 @@ pre {
       height: 2px;
       background: $primary-gradient;
       opacity: 0.7;
-      border-radius: 8px 8px 0 0;
+      border-radius: 12px 12px 0 0;
+    }
+
+    @media #{$media-size-phone} {
+      opacity: 1; // Consistent opacity on mobile
     }
 
     [data-theme=dark] & {
-      background: $dark-background-secondary;
-      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba($dark-background-secondary, 0.9);
+      border-color: rgba(255, 255, 255, 0.05);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
       &::before {
@@ -352,33 +358,33 @@ pre {
     }
 
     svg {
-      width: 22px;
-      height: 22px;
-      stroke: $light-color;
-      stroke-width: 2;
-      fill: none;
+      width: 20px;
+      height: 20px;
+      stroke: $light-color-variant;
+      stroke-width: 2.5;
       transition: all 0.3s ease;
 
       [data-theme=dark] & {
-        stroke: $dark-color;
+        stroke: $dark-color-variant;
       }
     }
 
     &:hover {
+      opacity: 1;
       background: rgba($light-accent-color, 0.1);
       box-shadow: 0 5px 15px rgba(71, 118, 230, 0.2);
       transform: translateY(-2px);
 
       [data-theme=dark] & {
-        background: rgba($dark-accent-color, 0.1);
-        box-shadow: 0 5px 15px rgba(0, 245, 160, 0.2);
+        background: rgba($light-accent-color, 0.1);
+        box-shadow: 0 5px 15px rgba(71, 118, 230, 0.2);
       }
 
       svg {
         stroke: $light-accent-color;
 
         [data-theme=dark] & {
-          stroke: $dark-accent-color;
+          stroke: $light-accent-color;
         }
       }
     }
@@ -417,7 +423,7 @@ pre {
   }
 
   &:hover .copy-button {
-    // Button is already fully visible
+    // No need to change opacity as it's already 1
   }
 
   &::before {
