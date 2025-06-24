@@ -323,14 +323,14 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 0.7; // Always visible, slightly transparent
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 10;
 
     @media #{$media-size-phone} {
-      opacity: 0.6; // Always show on mobile
+      opacity: 0.7; // Consistent opacity on mobile
     }
 
     [data-theme=dark] & {
@@ -389,7 +389,7 @@ pre {
   }
 
   &:hover .copy-button {
-    opacity: 0.8;
+    opacity: 1; // Fully visible on hover
   }
 
   &::before {
