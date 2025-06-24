@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!postsContainer) return;
 
   // Fetch the JSON feed
-  fetch('/feed.json')
+  // Get the URL from the link tag in the head
+  const jsonFeedLink = document.querySelector('link[type="application/json"]');
+  const jsonFeedUrl = jsonFeedLink ? jsonFeedLink.href : '/feed.json';
+
+  fetch(jsonFeedUrl)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
