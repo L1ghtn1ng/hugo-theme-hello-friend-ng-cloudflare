@@ -315,13 +315,18 @@ pre {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
+  // Ensure border continues during horizontal scrolling
+  background-clip: padding-box;
 
   // Copy button
   .copy-button {
-    position: absolute;
+    position: sticky;
     padding: 0;
     top: 10px;
     right: 10px;
+    float: right;
+    margin-top: -10px;
+    margin-right: -10px;
     width: 36px;
     height: 36px;
     background: rgba($light-background-secondary, 0.9);
