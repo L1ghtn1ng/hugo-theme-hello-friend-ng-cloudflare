@@ -8,7 +8,7 @@
         "tags" .Params.tags
         "categories" .Params.categories
         "readingTime" .ReadingTime
-        "author" (cond (isset .Params "author") .Params.author "Anonymous")
+        "author" (cond (isset .Params "author") .Params.author .Site.Author.name)
         "image" (cond (isset .Params "cover") .Params.cover "")
     ) -}}
 {{- end -}}
