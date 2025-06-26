@@ -7,7 +7,7 @@
         "summary" (cond (ne .Summary "") .Summary .Description)
         "tags" .Params.tags
         "readingTime" .ReadingTime
-        "author" (cond (isset .Params "author") .Params.author.name (default "" .Site.Params.Author))
+        "author" (cond (isset .Params "author") (cond (kindIs "map" .Params.author) .Params.author.name .Params.author) (default "John Doe" .Site.Params.Author))
     ) -}}
 {{- end -}}
 {{- $index | jsonify -}}
