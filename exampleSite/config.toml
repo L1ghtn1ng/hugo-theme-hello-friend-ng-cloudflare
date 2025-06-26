@@ -46,7 +46,7 @@ disableHugoGeneratorInject = false
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 
-[author]
+[params.author]
   name = "Jane Doe"
 
 [blackfriday]
