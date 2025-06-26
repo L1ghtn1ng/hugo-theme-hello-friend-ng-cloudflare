@@ -6,8 +6,10 @@
         "date" (.Date.Format "2006-01-02") 
         "summary" (cond (ne .Summary "") .Summary .Description)
         "tags" .Params.tags
+        "categories" .Params.categories
         "readingTime" .ReadingTime
-        "author" (cond (isset .Params "author") .Params.author.name (default "John Doe" .Site.Author))
+        "author" (cond (isset .Params "author") .Params.author)
+        "image" (cond (isset .Params "cover") .Params.cover "")
     ) -}}
 {{- end -}}
 {{- $index | jsonify -}}
