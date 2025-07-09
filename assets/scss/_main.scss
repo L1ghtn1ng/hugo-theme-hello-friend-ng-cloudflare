@@ -451,8 +451,9 @@ pre {
   }
 
   @media #{$media-size-phone} {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   code {
