@@ -316,9 +316,12 @@ pre {
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
 
+  // Ensure background extends with content during horizontal scroll
+  background-attachment: local;
+
   // Copy button
   .copy-button {
-    position: absolute;
+    position: sticky;
     padding: 0;
     top: 10px;
     right: 10px;
@@ -426,10 +429,12 @@ pre {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    min-width: max-content;
     height: 2px;
     background: $primary-gradient;
     opacity: 0.7;
+    z-index: 1;
   }
 
   @media (prefers-color-scheme: dark) {
