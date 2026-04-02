@@ -1,10 +1,6 @@
 baseURL = "https://example.com"
 title   = "Hello Friend NG Cloudflare"
-languageCode = "en-us"
 theme = "hello-friend-ng-cloudflare"
-
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"
 
 pagination.pagerSize  = 10
 rssLimit  = 10  # Maximum number of items in the RSS feed.
@@ -49,8 +45,9 @@ disableHugoGeneratorInject = false
 [params.author]
   name = "Jane Doe"
 
-[blackfriday]
-  hrefTargetBlank = true
+[markup]
+  [markup.highlight]
+    style = "monokai"
 
 [taxonomies]
   tag      = "tags"
@@ -105,7 +102,7 @@ disableHugoGeneratorInject = false
   #
   # There are a lot of buttons preconfigured. If you want to change them,
   # generate the buttons here: https://sharingbuttons.io
-  # and add them into your own `layouts/partials/sharing-buttons.html`
+  # and add them into your own `layouts/_partials/sharing-buttons.html`
   #
   enableSharingButtons = true
 
@@ -194,11 +191,13 @@ disableHugoGeneratorInject = false
 
 [languages]
   [languages.en]
+    locale    = "en-US"
     subtitle  = "Hello Friend NG Theme Cloudflare"
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   [languages.fr]
+    locale    = "fr-FR"
     subtitle  = "Hello Friend NG Theme Cloudflare"
     weight    = 2
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'

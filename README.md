@@ -32,7 +32,7 @@ This theme is a fork of [Hello Friend NG](https://github.com/rhazdon/hugo-theme-
 
 - Theming: **dark/light mode**, set by the site, operating system, or the users choose an optional theme toggle.
 - Great reading experience thanks to [**Inter font**](https://rsms.me/inter/), made by [Rasmus Andersson](https://rsms.me/about/)
-- Nice code highlighting thanks to [**PrismJS**](https://prismjs.com)
+- Hugo built-in code highlighting with copy-to-clipboard support
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
 - Audio support for posts (thanks to [@talbotp](https://github.com/talbotp))
@@ -68,9 +68,9 @@ Take a look into the `config.toml` in `exampleSite`.
 ``` toml
 baseurl      = "localhost"
 title        = "My Blog"
-languageCode = "en-us"
+locale       = "en-US"
 theme        = "hello-friend-ng-cloudflare"
-paginate     = 10
+pagination.pagerSize = 10
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -143,7 +143,7 @@ Example:
 
 ### Code highlighting
 
-By default the theme is using Hugo's builtin code syntax highlighter. All you need to do is to wrap your code like this:
+By default the theme uses Hugo's built-in code syntax highlighter. All you need to do is wrap your code like this:
 
 <pre>
 ``` html

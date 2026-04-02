@@ -1,5 +1,5 @@
 {{- $index := slice -}}
-{{- range where .Site.RegularPages "Type" "posts" -}}
+{{- range where site.RegularPages "Type" "posts" -}}
     {{- $index = $index | append (dict 
         "title" .Title 
         "permalink" .Permalink 
@@ -8,7 +8,7 @@
         "tags" .Params.tags
         "categories" .Params.categories
         "readingTime" .ReadingTime
-        "author" (cond (isset .Params "author") .Params.author .Site.Params.author)
+        "author" (or .Params.author site.Params.author.name)
         "image" (cond (isset .Params "cover") .Params.cover "")
     ) -}}
 {{- end -}}

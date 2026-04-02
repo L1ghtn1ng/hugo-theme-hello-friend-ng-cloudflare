@@ -11,7 +11,7 @@
 
         {{ if .IsTranslated }} | {{ i18n "postAvailable" }}
           {{ range .Translations }}
-              <a href="{{ .Permalink }}"><span class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>
+              <a href="{{ .Permalink }}"><span class="flag flag-icon flag-icon-{{ index hugo.Data.langFlags .Lang }} flag-icon-squared"></span></a>
           {{ end}}
         {{ end }}
       </p>
@@ -125,13 +125,13 @@
     {{ if .Site.Config.Services.Disqus.Shortname }}
       {{ if not (eq .Params.Comments "false") }}
         <div id="comments">
-          {{ template "_internal/disqus.html" . }}
+          {{ partial "disqus.html" . }}
         </div>
       {{ end }}
     {{ end }}
 
     {{ if .Site.Params.Commento.Url }}
-      <script defer src={{ .Site.Params.Commento.Url }} nonce=""></script>
+      <script defer src="{{ .Site.Params.Commento.Url }}" nonce=""></script>
       <div id="commento"></div>
     {{ end }}
 

@@ -1,0 +1,19 @@
+<nav class="menu">
+    <ul class="menu__inner">
+        {{ range .Site.Menus.main -}}
+            <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+        {{- end }}
+
+        {{- if and .Site.Params.EnableGlobalLanguageMenu hugo.IsMultilingual }}
+        <li class="submenu dropdown">
+            <a href="javascript:void(0)" class="dropbtn">{{ or .Language.Label .Language.Lang }}</a>
+            <div class="dropdown-content">
+                {{ range .AllTranslations }}
+                    {{- $label := or .Language.Label .Language.Lang -}}
+                    <a title="{{ $label }}" href="{{ .Permalink }}" hreflang="{{ or .Language.Locale .Language.Lang }}"{{ if eq .Language.Lang $.Language.Lang }} aria-current="page"{{ end }}>{{ $label }}</a>
+                {{ end }}
+            </div>
+        </li>
+        {{- end }}
+    </ul>
+</nav>
